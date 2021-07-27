@@ -1,0 +1,145 @@
+// browser reset 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // border: 1px solid;
+}
+
+//all variable declare
+$color-primary: #b8864e;
+$text-primary: #0c1527;
+
+// disable scroll bar
+::-webkit-scrollbar {
+  display: none;
+}
+
+@mixin flex($justify, $align) {
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  background: #eef5ff;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .heading {
+    display: flex;
+    @include flex(center, center);
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 10px;
+
+    h1 {
+      font-size: 40px;
+      letter-spacing: 5px;
+      margin: 10px;
+      color: $text-primary;
+
+      &::selection {
+        background: $color-primary;
+      }
+    }
+
+    .hr {
+      height: 4px;
+      border-radius: 10px;
+      width: 80px;
+      background: $color-primary;
+    }
+  }
+
+
+  .filter-box {
+    display: flex;
+    @include flex(center, center);
+    margin-bottom: 50px;
+    
+    div {
+      padding: 3px 10px;
+      border: 1px solid;
+      border-color: $color-primary #000000 #000000 $color-primary;
+      border-radius: 5px;
+      margin: 0 10px;
+      color: $color-primary;
+      cursor: pointer;
+    }
+  }
+
+  .menu-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .food {
+      display: flex;
+      // @include flex(center, center);
+      margin: 20px 15px;
+      max-width: 550px;
+
+      .img-box {
+        height: 160px;
+        width: 300px;
+        border: 3px solid $color-primary;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-right: 20px;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: 0 0 0 20px;
+        }
+      }
+
+      .info {
+        width: 400px;
+        font-size: 15px;
+
+        .name-box {
+          display: flex;
+          justify-content: space-between;
+          letter-spacing: 2px;
+          font-weight: 600;
+          margin-bottom: 15px;
+          padding-bottom: 5px;
+          border-bottom: 1px solid #a5afb8;
+
+          .name {
+            color: $text-primary;
+            width: 100%;
+
+            &::selection {
+              background: $color-primary;
+            }
+          }
+
+          .price {
+            color: $color-primary;
+
+            &::selection {
+              background: $color-primary;
+              color: #ffffff;
+            }
+          }
+        }
+
+        .food-detail {
+
+          p {
+            color: #6c7a97;
+
+            &::selection {
+              background: $color-primary;
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
